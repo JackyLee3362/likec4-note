@@ -1,0 +1,127 @@
+model {
+    user = user "用户"
+    frontend = system "前端" {
+        summary "C端、B端、小程序、H5"
+        description "包含C端、B端、小程序、H5"
+        gene-chain = app "基因链"
+        recce = app "recce"
+        ui = component
+    }
+    backend = system "后端" {
+        api = component
+    }
+    frontend.ui -> backend.api
+
+    trade-system = system "交易系统" {
+        portal = app "门户" {
+            summary "交易门户"
+            description """
+      ### Web Application
+
+      > Provides services to customers through
+      > the web interface.
+
+      | checks     |     |
+      | :--------- | :-- |
+      | check 1    | ✅  |
+      | check 2    | ⛔️  |
+      | check 3    | ✅  |
+    """
+            technology "Spring"
+            technology "REST"
+            icon tech:spring
+            link http://www.google.com "谷歌"
+            link http://www.baidu.com "百度"
+            metadata {
+                appkey "com.example.portal"
+                tags ["frontend", "react", "typescript"]
+                environments ["dev", "staging", "prod"]
+                version "2.1.0"
+                critical true
+                framework "React"
+                version "18.2.0"
+                features ["shopping-cart", "user-auth", "payment", "search"]
+                deployment_targets ["staging", "production"]
+                team_lead "Alice Johnson"
+                developers ["Bob Smith", "Carol Davis", "David Wilson"]
+                release_cycle "weekly"
+                supported_browsers ["Chrome", "Firefox", "Safari", "Edge"]
+                accessibility_level "WCAG 2.1 AA"
+                has_mobile_app true
+            }
+        }
+        credit-platform = app "交易平台"
+        repository = repository "交易数据库"
+        this <-> user
+
+
+    }
+
+    diversion-system = system "导流系统" {
+
+    }
+
+    xiaodai-system = system "小贷系统" {
+        xiaodai = app "小贷" {
+            link http://www.baidu.com "lion配置"
+            link http://www.baidu.com "数据库"
+        }
+        xiaodai-gateway = app "小贷网关"
+
+        trade-system <-> xiaodai-system.xiaodai-gateway "互相调用"
+        xiaodai-gateway -> xiaodai
+
+    }
+
+    user .async trade-system.repository "调用" {
+        navigateTo dynamic-view-xiaodai
+    }
+    user -> frontend "使用"
+    frontend <-> trade-system "调用"
+    trade-system <-> diversion-system "调用"
+    trade-system <-> xiaodai-system "调用"
+
+}
+
+views {
+    view index {
+        title "总览"
+        include *
+    }
+
+    view level-1-trade-system-base of trade-system {
+        #deprecated
+        title "交易系统"
+        routing ortho
+        include *
+    }
+
+    view level-1-trade-system-v2 extends level-1-trade-system-base {
+        title "交易系统和外部系统交互"
+        include user, frontend
+        include
+            xiaodai-system with {
+                color amber
+                navigateTo index
+            }
+        // exclude trade-system
+    }
+
+    view view-l2-xiaodai-system of xiaodai-system {
+        title "小贷系统"
+        description "小贷系统系统总览"
+
+        include *
+        include xiaodai-system, trade-system
+
+    }
+
+    dynamic view dynamic-view-xiaodai {
+        title "小贷时序图"
+
+        xiaodai -> xiaodai-gateway "授信申请"
+        xiaodai-gateway -> xiaodai "受理成功"
+
+        include *
+    }
+}

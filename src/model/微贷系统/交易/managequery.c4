@@ -1,6 +1,6 @@
 model {
     managequery = system {
-        app = backend
+        backend = backend
     }
-    managequery.app .read-write creditplatform.db
+    managequery.backend .rw creditplatform.db
 }

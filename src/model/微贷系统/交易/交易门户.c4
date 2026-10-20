@@ -23,7 +23,8 @@ model {
             accessibility_level "WCAG 2.1 AA"
             has_mobile_app true
         }
+
+        backend = backend "后端"
     }
-
-
+    // portal -> creditplatform
 }

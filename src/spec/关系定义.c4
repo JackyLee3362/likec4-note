@@ -16,7 +16,7 @@ specification {
     relationship subscribes {
         notation '订阅'
     }
-    relationship read-write {
+    relationship rw {
         notation '读写'
 
     }

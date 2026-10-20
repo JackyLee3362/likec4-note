@@ -5,8 +5,11 @@ model {
         queue = queue "消息队列"
 
         backend .publish queue "发布"
-        backend .read-write db "读写"
+        backend .rw db "读写"
     }
+
+    creditplatform.backend -> xiaodai-gateway.backend
+    creditplatform.backend -> portal.backend
 }
 
 views {

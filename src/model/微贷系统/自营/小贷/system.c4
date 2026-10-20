@@ -1,0 +1,6 @@
+model {
+    xiaodai = system "小贷系统" {
+        link http://www.baidu.com "lion配置"
+        link http://www.baidu.com "数据库"
+    }
+}

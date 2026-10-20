@@ -1,5 +1,5 @@
 model {
-    database = repository ""
+    database = database ""
 
 }
 deployment {

@@ -1,5 +1,5 @@
 specification {
-    element user
+    element actor
     element system
     element app {
         notation '服务'
@@ -8,8 +8,13 @@ specification {
         }
     }
     element service
+    element queue {
+        style {
+            shape queue
+        }
+    }
     element component
-    element repository {
+    element database {
         style {
             color secondary
             shape storage

@@ -1,0 +1,7 @@
+model {
+    creditplatform = system "交易平台" {
+        app = app "交易平台"
+        db = database "交易数据库"
+        queue = queue "消息队列"
+    }
+}

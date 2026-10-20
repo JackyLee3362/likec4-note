@@ -1,0 +1,4 @@
+model {
+    user = actor "用户"
+    ops = actor "运营"
+}

@@ -1,5 +1,5 @@
 model {
     recce = system {
-        recce-app = app "recce"
+        recce-app = backend "recce"
     }
 }

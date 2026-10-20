@@ -1,0 +1,18 @@
+model {
+    user = actor "用户" {
+        style {
+            color green
+        }
+    }
+    ops = actor "运营"
+    upstream = actor "上游" {
+        style {
+            color green
+        }
+    }
+    downstream = actor "下游" {
+        style {
+            color red
+        }
+    }
+}

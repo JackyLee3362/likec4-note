@@ -1,0 +1,7 @@
+model {
+    xiaodai-gateway = system "小贷网关" {
+        backend = backend "后端"
+        db = database "数据库"
+        queue = queue "消息队列"
+    }
+}

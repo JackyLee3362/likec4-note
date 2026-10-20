@@ -1,7 +1,41 @@
 model {
     creditplatform = system "交易平台" {
-        app = app "交易平台"
-        db = database "交易数据库"
+        backend = backend "后端"
+        db = database "数据库"
         queue = queue "消息队列"
+
+        backend .publish queue "发布"
+        backend .read-write db "读写"
     }
+}
+
+views {
+    // 系统上下文
+    view system-context-creditplatform {
+        title "系统 / 交易/ 交易平台 / L1-系统上下文"
+        include -> creditplatform ->
+        include creditplatform
+    }
+    
+    // 容器视图 后端
+    view container-creditplatform-app of creditplatform.backend {
+        title "系统 / 交易 / 交易平台 / L2-容器视图-后端"
+        include creditplatform
+        include *
+    }
+    
+    // 容器视图 数据库
+    view container-creditplatform-db of creditplatform.db {
+        title "系统 / 交易 / 交易平台 / L2-容器视图-数据库"
+        include creditplatform
+        include *
+    }
+
+    // 容器视图 消息队列
+    view container-creditplatform-queue of creditplatform.queue {
+        title "系统 / 交易 / 交易平台 / L2-容器视图-消息队列"
+        include creditplatform
+        include *
+    }
+
 }

@@ -1,6 +1,6 @@
 model {
-    genechain = system {
-        app = app "基因链" {
+    genechain = system "基因链" {
+        app = frontend "前端" {
             metadata {
                 appkey "com.example.genechain"
             }

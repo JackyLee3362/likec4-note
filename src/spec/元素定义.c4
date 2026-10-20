@@ -1,27 +1,36 @@
 specification {
-
-    // L1
+    // L1 system
     element actor
     element system
-    // L2
-    element app {
-        notation '服务'
+
+    // L2 container
+    element frontend {
+        notation '前端'
+    }
+    element backend {
+        notation '后端'
         style {
             sizing fixed
         }
     }
     element queue {
+        notation '消息队列'
         style {
             shape queue
         }
     }
     element database {
+        notation '数据库'
         style {
             color secondary
             shape storage
         }
     }
-    // L3
-    element component
+    // L3 component
+    element component {
+        notation '组件'
+    }
+
     // L4
+    // ...
 }

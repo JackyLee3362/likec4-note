@@ -1,7 +1,7 @@
 specification {
     relationship async {
         #tcp
-        title 'Asynchronous'
+        title '异步'
         description 'Communication over a message broker'
         technology 'Kafka'
         notation 'Async'
@@ -10,6 +10,15 @@ specification {
         line dotted
         color amber
     }
-    relationship subscribes
+    relationship publish {
+        notation '发布'
+    }
+    relationship subscribes {
+        notation '订阅'
+    }
+    relationship read-write {
+        notation '读写'
+
+    }
     relationship is-downstream-of
 }

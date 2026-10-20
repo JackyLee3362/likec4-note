@@ -1,5 +1,0 @@
-model {
-    extend frontend {
-        recce = app "recce"
-    }
-}

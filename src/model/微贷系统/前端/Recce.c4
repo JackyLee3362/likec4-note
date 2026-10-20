@@ -1,0 +1,5 @@
+model {
+    recce = system {
+        recce-app = app "recce"
+    }
+}

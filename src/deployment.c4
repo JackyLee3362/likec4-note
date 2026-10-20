@@ -2,16 +2,17 @@ model {
     database = database ""
 
 }
+
 deployment {
     environment prod {
         zone eu {
             zone zone1 {
-                instanceOf frontend.gene-chain
-                instanceOf backend.api
+                instanceOf genechain.app
+                instanceOf creditplatform.queue
             }
             zone zone2 {
-                instanceOf frontend.gene-chain
-                instanceOf backend.api
+                instanceOf genechain.app
+                instanceOf creditplatform.queue
             }
             instanceOf database
         }

@@ -1,0 +1,15 @@
+specification {
+    relationship async {
+        #tcp
+        title 'Asynchronous'
+        description 'Communication over a message broker'
+        technology 'Kafka'
+        notation 'Async'
+        link https://example.com/async
+        multiple true
+        line dotted
+        color amber
+    }
+    relationship subscribes
+    relationship is-downstream-of
+}

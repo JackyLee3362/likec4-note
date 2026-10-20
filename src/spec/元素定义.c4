@@ -1,0 +1,27 @@
+specification {
+
+    // L1
+    element actor
+    element system
+    // L2
+    element app {
+        notation '服务'
+        style {
+            sizing fixed
+        }
+    }
+    element queue {
+        style {
+            shape queue
+        }
+    }
+    element database {
+        style {
+            color secondary
+            shape storage
+        }
+    }
+    // L3
+    element component
+    // L4
+}

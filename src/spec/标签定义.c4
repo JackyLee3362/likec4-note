@@ -1,0 +1,7 @@
+specification {
+
+    tag tcp
+    tag deprecated {
+        color gray
+    }
+}

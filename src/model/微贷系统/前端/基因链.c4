@@ -1,6 +1,6 @@
 model {
-    extend frontend {
-        gene-chain = app "基因链" {
+    genechain = system {
+        app = app "基因链" {
             metadata {
                 appkey "com.example.genechain"
             }

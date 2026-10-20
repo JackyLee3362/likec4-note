@@ -1,7 +1,9 @@
 model {
-    recce = system {
+    recce = system "Recce" {
         #front-group
-        recce-app = backend "recce"
+        recce-app = backend "recce" {
+            technology "Rust"
+        }
     }
     recce -> portal
 }

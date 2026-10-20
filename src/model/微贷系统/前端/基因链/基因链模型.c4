@@ -1,10 +1,11 @@
 model {
     genechain = system "基因链" {
-        app = frontend "前端" {
+        #front-group
+        frontend = frontend "前端" {
             metadata {
                 appkey "com.example.genechain"
             }
         }
-
     }
+    genechain -> portal
 }

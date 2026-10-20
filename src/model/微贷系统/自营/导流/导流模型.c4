@@ -1,3 +1,11 @@
 model {
-    diversion = system "导流系统"
+    diversion = system "导流系统" {
+        #self-group
+        backend = backend "后端"
+        db = database "数据库"
+        queue = queue "消息队列"
+    }
+    
+    diversion <-> uniformcredit
+    diversion <-> uniformloan
 }

@@ -3,6 +3,8 @@ model {
         style {
             color green
         }
+        user -> recce
+        user -> genechain
     }
     ops = actor "运营"
     upstream = actor "上游" {

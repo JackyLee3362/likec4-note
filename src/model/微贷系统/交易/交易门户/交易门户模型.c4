@@ -1,5 +1,6 @@
 model {
     portal = system "门户" {
+        #trade-group
         summary "交易门户"
         technology "Spring"
         technology "REST"

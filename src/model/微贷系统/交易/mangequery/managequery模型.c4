@@ -1,6 +1,7 @@
 model {
     managequery = system {
-        backend = backend
+        #trade-group
+        backend = backend "后端"
     }
     managequery.backend .rw creditplatform.db
 }

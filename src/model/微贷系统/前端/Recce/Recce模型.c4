@@ -1,5 +1,7 @@
 model {
     recce = system {
+        #front-group
         recce-app = backend "recce"
     }
+    recce -> portal
 }

@@ -1,0 +1,8 @@
+model {
+    uniformcredit = system "综合授信" {
+        #self-group
+        backend = backend "后端"
+        db = database "数据库"
+        queue = queue "消息队列"
+    }
+}

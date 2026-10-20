@@ -1,7 +1,11 @@
 specification {
-
-    tag tcp
     tag deprecated {
         color gray
     }
+    // 前端组
+    tag front-group
+    // 交易组
+    tag trade-group
+    // 自营组
+    tag self-group
 }

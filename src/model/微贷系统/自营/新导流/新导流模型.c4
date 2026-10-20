@@ -1,3 +1,8 @@
 model {
-    loan-agent = system "新导流"
+    loan-agent = system "新导流" {
+        #self-group
+        backend = backend "后端"
+        db = database "数据库"
+        queue = queue "消息队列"
+    }
 }

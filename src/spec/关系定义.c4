@@ -1,6 +1,5 @@
 specification {
     relationship async {
-        #tcp
         title '异步'
         description 'Communication over a message broker'
         technology 'Kafka'

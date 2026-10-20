@@ -7,11 +7,11 @@ deployment {
     environment prod {
         zone eu {
             zone zone1 {
-                instanceOf genechain.app
+                instanceOf genechain.frontend
                 instanceOf creditplatform.queue
             }
             zone zone2 {
-                instanceOf genechain.app
+                instanceOf genechain.frontend
                 instanceOf creditplatform.queue
             }
             instanceOf database

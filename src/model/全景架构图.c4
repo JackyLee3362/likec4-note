@@ -1,0 +1,16 @@
+views {
+    view index {
+        title '全景架构图'
+        include user
+        group '前端组' {
+            include element.tag = #front-group
+        }
+        group '交易组' {
+            include element.tag = #trade-group
+        }
+        group '自营组' {
+            include element.tag = #self-group
+        }
+    }
+
+}

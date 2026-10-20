@@ -1,0 +1,3 @@
+model {
+    loan-agent = system "新导流"
+}

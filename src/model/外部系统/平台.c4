@@ -1,0 +1,5 @@
+model {
+    crane = system "Crane平台"
+    mafka = system "Mafka平台"
+    persona = system "人群系统"
+}

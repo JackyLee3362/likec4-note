@@ -1,0 +1,3 @@
+model {
+    xiaodai = system "小贷系统"
+}

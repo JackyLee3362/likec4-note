@@ -6,11 +6,11 @@ deployment {
     environment prod {
         zone eu {
             zone zone1 {
-                instanceOf frontend.ui
+                instanceOf frontend.gene-chain
                 instanceOf backend.api
             }
             zone zone2 {
-                instanceOf frontend.ui
+                instanceOf frontend.gene-chain
                 instanceOf backend.api
             }
             instanceOf database

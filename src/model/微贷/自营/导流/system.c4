@@ -1,0 +1,3 @@
+model {
+    diversion = system "导流系统"
+}

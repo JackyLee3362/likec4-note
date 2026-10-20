@@ -1,0 +1,7 @@
+views {
+    view index {
+        title '全景架构图'
+        include *
+    }
+    
+}

@@ -1,6 +1,6 @@
 views {
     dynamic view bizflow-cashloan-credit-biz {
-        title "V0-生活费授信流程"
+        title "业务流程 / 生活费 / 授信 / V0-生活费授信流程"
         variant sequence
         user
             -> genechain "授信申请" {
@@ -25,7 +25,7 @@ views {
     }
 
     dynamic view system-sequence-cashloan-credit-biz-credit-apply {
-        title "V1-生活费授信"
+        title "业务流程 / 生活费 / 授信 / V1-生活费授信"
         variant sequence
 
         user -> genechain "授信申请" { line solid }
@@ -41,24 +41,5 @@ views {
         genechain -> user "返回"
     }
 
-    dynamic view container-sequence-xiaodai-credit-biz-credit-apply {
-        title "V2-生活费授信"
-        variant sequence
-
-        upstream -> xiaodai.backend "请求授信申请"
-        xiaodai.backend -> xiaodai.db "查询数据库"
-        alt {
-            when "如果用户已有授信申请" {
-                xiaodai.backend -> upstream "用户已有授信申请"
-            }
-            if "用户没有授信神器" {
-                xiaodai.backend -> xiaodai.db "插入授信申请"
-                xiaodai.backend -> downstream
-                xiaodai.backend -> upstream
-            }
-        }
-        // 控制顺序
-        include upstream, xiaodai, xiaodai.*, downstream
-    }
 
 }

@@ -20,7 +20,7 @@ deployment {
 }
 views {
     deployment view index-v2 {
-        title "Production Deployment"
+        title "部署图"
         link https://likec4.dev
 
         include prod.**

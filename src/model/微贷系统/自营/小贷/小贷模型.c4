@@ -6,6 +6,10 @@ model {
         db = database "数据库"
         queue = queue "消息队列"
     }
-    
+
     xiaodai.backend -> xiaodai-gateway.backend
+}
+
+views {
+
 }

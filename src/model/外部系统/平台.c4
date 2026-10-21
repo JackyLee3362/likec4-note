@@ -1,5 +1,12 @@
 model {
-    crane = system "Crane平台"
-    mafka = system "Mafka平台"
+    crane = system "Crane平台" {
+        schedule = backend "任务调度器"
+    }
+    mafka = system "Mafka平台" {
+        style {
+            shape queue
+        }
+        queue = queue "Mafka集群"
+    }
     persona = system "人群系统"
 }

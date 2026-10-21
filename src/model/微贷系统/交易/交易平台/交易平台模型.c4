@@ -1,45 +1,69 @@
 model {
+    // 模型
     creditplatform = system "交易平台" {
         #trade-group
-        backend = backend "后端"
-        db = database "数据库"
-        queue = queue "消息队列"
+        // 建模
+        backend = backend "后端" {
+            // 模型
+            credit = component "授信"
+            loan = component "借款"
+            repay = component "还款"
+            pay = component "支付"
+            close = component "关户"
 
-        backend .publish queue "发布"
+            // 关系
+            crane.schedule .trigger loan "定时任务1触发" {
+                description "每天凌晨执行借款状态同步"
+            }
+            crane.schedule .trigger loan "定时任务2触发" {
+                description "每小时执行借款超时检查"
+            }
+            loan .publish mafka.queue "发布"
+            pay .subscribes mafka.queue "订阅" {
+                description "订阅 pay.notify 主题"
+            }
+        }
+        db = database "数据库"
+        // 关系
         backend .rw db "读写"
     }
 
-    creditplatform.backend -> xiaodai-gateway.backend
-    creditplatform.backend -> portal.backend
+    // 关系
+    creditplatform.backend.loan -> xiaodai-gateway.backend.loan
+    creditplatform.backend -> portal.backend "依赖"
+    creditplatform -> xiaodai
 }
 
 views {
-    // 系统上下文
-    view system-context-creditplatform {
+    // L1 系统上下文
+    view l1-system-context-creditplatform {
         title "系统 / 交易/ 交易平台 / L1-系统上下文"
         include -> creditplatform ->
         include creditplatform
     }
     
-    // 容器视图 后端
-    view container-creditplatform-app of creditplatform.backend {
-        title "系统 / 交易 / 交易平台 / L2-容器视图-后端"
-        include creditplatform
+    // L2 容器视图
+    view l2-container-creditplatform of creditplatform {
+        title "系统 / 交易 / 交易平台 / L2-容器视图"
         include *
     }
     
-    // 容器视图 数据库
-    view container-creditplatform-db of creditplatform.db {
-        title "系统 / 交易 / 交易平台 / L2-容器视图-数据库"
-        include creditplatform
+    // L3 组件视图 - 后端
+    view l3-component-creditplatform of creditplatform.backend {
+        title "系统 / 交易 / 交易平台 / L2-容器视图"
         include *
     }
+    
+    // L3 组件视图 - 拓展 - 排除Mafka
+    view l3-component-creditplatform-no-mafka extends l3-component-creditplatform {
+        title "系统 / 交易 / 交易平台 / L2-容器视图"
+        exclude mafka
+    }
 
-    // 容器视图 消息队列
-    view container-creditplatform-queue of creditplatform.queue {
-        title "系统 / 交易 / 交易平台 / L2-容器视图-消息队列"
-        include creditplatform
-        include *
+    // L3 组件视图 - 拓展 - 排除 Crane
+    view l3-component-creditplatform-no-public extends l3-component-creditplatform {
+        title "系统 / 交易 / 交易平台 / L2-容器视图"
+        exclude mafka, crane
     }
 
 }

@@ -1,34 +1,43 @@
 specification {
     // L1 system
     element actor
-    element system
+    element system {
+    }
 
     // L2 container
     element frontend {
         notation '前端'
+        style {
+            color secondary
+        }
     }
     element backend {
         notation '后端'
         style {
             sizing fixed
+            color secondary
         }
     }
     element queue {
         notation '消息队列'
         style {
             shape queue
+            color secondary
         }
     }
     element database {
         notation '数据库'
         style {
-            color secondary
             shape storage
+            color secondary
         }
     }
     // L3 component
     element component {
         notation '组件'
+        style {
+            color indigo
+        }
     }
 
     // L4

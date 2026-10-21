@@ -1,5 +1,5 @@
 model {
-    managequery = system {
+    managequery = system "ManageQuery" {
         #trade-group
         backend = backend "后端"
     }

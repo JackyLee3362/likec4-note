@@ -17,7 +17,9 @@ specification {
     }
     relationship rw {
         notation '读写'
-
+    }
+    relationship trigger {
+        notation '触发'
     }
     relationship is-downstream-of
 }

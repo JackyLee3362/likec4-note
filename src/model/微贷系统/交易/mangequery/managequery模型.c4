@@ -3,5 +3,5 @@ model {
         #trade-group
         backend = backend "后端"
     }
-    managequery.backend .rw creditplatform.db
+    managequery.backend .read-write creditplatform.db
 }

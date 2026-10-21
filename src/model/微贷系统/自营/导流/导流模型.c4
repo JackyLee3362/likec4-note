@@ -3,7 +3,7 @@ model {
         #self-group
         backend = backend "后端"
         db = database "数据库"
-        queue = queue "消息队列"
+        queue = message "消息队列"
     }
     
     diversion <-> uniformcredit

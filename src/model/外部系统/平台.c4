@@ -3,10 +3,18 @@ model {
         schedule = backend "任务调度器"
     }
     mafka = system "Mafka平台" {
-        style {
-            shape queue
-        }
-        queue = queue "Mafka集群"
+        queue = message "Mafka集群"
+    }
+    s3 = system "S3Plus平台" {
+        queue = database "S3数据库"
     }
     persona = system "人群系统"
+}
+
+views {
+    view view_21_24 {
+        title 'Untitled'
+        include mafka
+        include mafka.*
+    }
 }

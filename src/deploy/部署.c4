@@ -8,11 +8,11 @@ deployment {
         zone eu {
             zone zone1 {
                 instanceOf genechain.frontend
-                instanceOf creditplatform.queue
+                instanceOf creditplatform.db
             }
             zone zone2 {
                 instanceOf genechain.frontend
-                instanceOf creditplatform.queue
+                instanceOf creditplatform.db
             }
             instanceOf database
         }

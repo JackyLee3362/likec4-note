@@ -15,7 +15,7 @@ specification {
     relationship subscribes {
         notation '订阅'
     }
-    relationship rw {
+    relationship read-write {
         notation '读写'
     }
     relationship trigger {

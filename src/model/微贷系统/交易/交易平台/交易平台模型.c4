@@ -5,11 +5,14 @@ model {
         // 建模
         backend = backend "后端" {
             // 模型
+
             credit = component "授信"
             loan = component "借款"
             repay = component "还款"
             pay = component "支付"
             close = component "关户"
+
+            integration = component '外部系统集成'
 
             // 关系
             crane.schedule .trigger loan "定时任务1触发" {
@@ -25,7 +28,7 @@ model {
         }
         db = database "数据库"
         // 关系
-        backend .rw db "读写"
+        backend .read-write db "读写"
     }
 
     // 关系

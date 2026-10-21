@@ -1,8 +1,8 @@
 specification {
     // L1 system
     element actor
-    element system {
-    }
+    element system 
+    
 
     // L2 container
     element frontend {
@@ -14,21 +14,34 @@ specification {
     element backend {
         notation '后端'
         style {
-            sizing fixed
             color secondary
         }
     }
-    element queue {
-        notation '消息队列'
+    element message {
+        notation '消息队列、事件流、消息代理'
         style {
             shape queue
+            color secondary
+        }
+    }
+    element storage {
+        notation '对象/文件存储'
+        style {
+            shape bucket
+            color secondary
+        }
+    }
+    element cache {
+        notation '缓存'
+        style {
+            shape cylinder
             color secondary
         }
     }
     element database {
         notation '数据库'
         style {
-            shape storage
+            shape cylinder
             color secondary
         }
     }
@@ -36,6 +49,7 @@ specification {
     element component {
         notation '组件'
         style {
+            shape component
             color indigo
         }
     }

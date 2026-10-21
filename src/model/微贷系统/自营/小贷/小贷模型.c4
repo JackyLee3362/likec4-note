@@ -5,7 +5,7 @@ model {
         link http://www.baidu.com "数据库"
         backend = backend "后端"
         db = database "数据库"
-        queue = queue "消息队列"
+        queue = message "消息队列"
     }
 
     xiaodai.backend -> xiaodai-gateway.backend
